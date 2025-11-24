@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>대테러 합동조사 Q&A 챗봇</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "맑은 고딕", sans-serif;
+      background: #0f172a;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #e5e7eb;
+    }
+    .chat-container {
+      width: 100%;
+      max-width: 520px;
+      height: 90vh;
+      background: #020617;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-header-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .chat-header h1 {
+      font-size: 1rem;
+      margin: 0;
+    }
+    .chat-header p {
+      font-size: 0.75rem;
+      margin: 0;
+      color: #9ca3af;
+    }
+    .logout-button {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      padding: 0.35rem 0.75rem;
+      background: #020617;
+      color: #9ca3af;
+      text-decoration: none;
+    }
+    #chat-log {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .message {
+      max-width: 80%;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+    }
+    .message.user {
+      align-self: flex-end;
+      background: #1d4ed8;
+      border-bottom-right-radius: 0.1rem;
+    }
+    .message.bot {
+      align-self: flex-start;
+      background: #111827;
+      border-bottom-left-radius: 0.1rem;
+    }
+    .chat-input {
+      padding: 0.75rem;
+      border-top: 1px solid #1f2937;
+      display: flex;
+      gap: 0.5rem;
+      background: #020617;
+    }
+    .chat-input input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      padding: 0.5rem 0.75rem;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .chat-input button {
+      border-radius: 999px;
+      border: none;
+      padding: 0 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+    .chat-input button:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <div class="chat-header-title">
+        <h1>대테러 합동조사 Q&A</h1>
+        <p>“언제 합동조사를 해야 하나요?” 같이 질문해보세요.</p>
+      </div>
+      <a href="/logout" class="logout-button">로그아웃</a>
+    </header>
+    <main id="chat-log"></main>
+    <form id="chat-form" class="chat-input">
+      <input id="user-input" autocomplete="off" placeholder="질문을 입력하세요..." />
+      <button type="submit">전송</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
