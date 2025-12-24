@@ -136,15 +136,20 @@
       cursor:pointer;
       font-size:12px;
     }
-    .cl-table-wrap{overflow-x:auto}
-    .cl-table{width:100%;border-collapse:collapse;min-width:860px}
+
+    .cl-table-wrap{overflow-x:visible;}
+    .cl-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:0;}
     .cl-table th,.cl-table td{border:1px solid #1f2937;padding:8px;vertical-align:top}
     .cl-table th{background:#0f172a;font-size:12px;color:#cbd5e1}
     .cl-table td{font-size:12px;color:#e5e7eb}
-    .c1{width:120px;font-weight:600}
-    .c2{width:520px;color:#cbd5e1}
-    .c3{width:220px}
-    .cl-lv{display:inline-flex;align-items:center;gap:4px;margin-right:10px;font-size:12px}
+
+    .c1{width:90px;font-weight:700}
+    .c2{width:auto;color:#cbd5e1;word-break:break-word;white-space:normal}
+    .c3{width:150px}
+
+    .cl-lv{display:inline-flex;align-items:center;gap:4px;margin-right:6px;font-size:12px}
+    .cl-lv input{transform:scale(0.95)}
+
     .cl-actions{margin-top:10px}
     .cl-submit{
       padding:8px 12px;
@@ -165,6 +170,49 @@
     }
     .cl-r-title{font-weight:700;margin-bottom:6px}
     .cl-r-decision{margin-top:8px;font-size:14px}
+
+    /* ===== 좁은 화면: 표 → 카드형 변환(횡스크롤 제거 핵심) ===== */
+    @media (max-width: 520px) {
+      .cl-table-wrap{overflow-x:visible !important;}
+      .cl-table, .cl-table thead, .cl-table tbody, .cl-table th, .cl-table td, .cl-table tr{
+        display:block;
+        width:100%;
+      }
+      .cl-table thead{display:none;}
+      .cl-table tr{
+        border:1px solid #1f2937;
+        border-radius:12px;
+        background:#020617;
+        margin-bottom:10px;
+        overflow:hidden;
+      }
+      .cl-table td{
+        border:none;
+        border-bottom:1px solid #1f2937;
+        padding:10px;
+      }
+      .cl-table td:last-child{border-bottom:none;}
+
+      .cl-table td.c1{
+        font-weight:800;
+        color:#e5e7eb;
+        background:#0b1220;
+      }
+      .cl-table td.c2{color:#cbd5e1;}
+      .cl-table td.c3{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+      }
+      .cl-lv{
+        margin-right:0;
+        background:#0b1220;
+        border:1px solid #1f2937;
+        padding:6px 10px;
+        border-radius:999px;
+      }
+    }
   </style>
 </head>
 <body>
